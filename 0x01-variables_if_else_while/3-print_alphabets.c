@@ -4,12 +4,11 @@
 *Return:Always 0 (Success)
 */
 int main(void)
-{
-char count = 'a';
+{char lowerCount = 'a';
 char upperCount = 'A';
-while (count <= 'z')
-{putchar(count);	
-count++;
+while (lowerCount <= 'z')
+{putchar(lowerCount);
+lowerCount++;
 }
 while (upperCount <= 'Z')
 {putchar(upperCount);
