@@ -10,5 +10,6 @@ while (count <= 'z')
 {putchar(count);
 count++;
 }
+putchar('\n');
 return (0);
 }
