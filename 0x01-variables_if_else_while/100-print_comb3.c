@@ -5,9 +5,11 @@
 */
 int main(void)
 {
-for (int i = 0; i <= 9; i++)
-{
-for (int j = 0; j <= 9; j++)
+int i = 0;
+int j;
+while (i <= 9)
+{j = 0;
+while (j <= 9)
 {
 if (i < j)
 {putchar(i + '0');
@@ -17,7 +19,9 @@ if (i <= 7)
 putchar(' ');
 }
 }
+j++;
 }
+i++;
 }
 putchar('\n');
 return (0);
