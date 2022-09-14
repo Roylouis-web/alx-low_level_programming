@@ -13,6 +13,6 @@ if (nums % 3 == 0 || nums % 5 == 0)
 }
 nums++;
 }
-printf("%d", sum);
+printf("%d\n", sum);
 return (0);
 }
