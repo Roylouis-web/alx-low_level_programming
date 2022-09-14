@@ -1,11 +1,12 @@
-#include <stdio.h>
+#include <unistd.h>
+
 /**
- * _putchar - Entry point
- * Description: contains the function to be used in the main function.
- * @charac: parameter for the required output.
- * Return: Always Successful
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-char _putchar(char charac)
-{
-return (putchar(charac));
+int _putchar(char c)
+{return (write(1, &c, 1));
 }
