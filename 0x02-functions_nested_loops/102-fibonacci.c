@@ -1,4 +1,4 @@
-#include <stdio.h>
+i#include <stdio.h>
 /**
 * main - main block
 * Description: Print the first 50 fibonacci numbers, starting with 1 and 2.
@@ -14,7 +14,7 @@ printf("%lu, ", second);
 while (count <= 50)
 {
 if (count == 50)
-{printf("%lu \n", next);
+{printf("%lu\n", next);
 }
 else
 {printf("%lu, ", next);
