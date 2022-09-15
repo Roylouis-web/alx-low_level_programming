@@ -11,33 +11,27 @@ for (i = 0; i <= 100; i++)
 {
 if (i > 9 && i % 3 != 0 && i % 5 != 0)
 {
-printf("%d", i / 10);
-printf("%d", i % 10);
-printf(" ");
+printf(" %d", i);
 }
 else if (i <= 9 && i % 3 != 0 && i % 5 != 0)
 {
-printf("%d", i);
-printf(" ");
+printf(" %d ", i);
 }
 else if (i % 3 == 0 && i % 5 == 0 && i != 0)
 {
-printf("FizzBuzz");
-printf(" ");
+printf(" FizzBuzz ");
+
 }
 else if (i % 3 == 0 && i != 0)
 {
-printf("Fizz");
-printf(" ");
+printf(" Fizz ");
 }
 else if (i % 5 == 0 && i != 0)
 {
-printf("Buzz");
-printf(" ");
+printf(" Buzz ");
 }
 }
 printf("\n");
 return (0);
 }
-
 
