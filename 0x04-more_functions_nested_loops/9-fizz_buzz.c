@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 /**
  *main - Entry point
  *Return: Always 0 Successful
@@ -9,41 +9,29 @@ for (i = 0; i < 100; i++)
 {
 if (i > 9 && i % 3 != 0 && i % 5 != 0)
 {
-_putchar(i / 10 + '0');
-_putchar(i % 10 + '0');
-_putchar(' ');
+	printf("%d", i / 10);
+	printf("%d", i % 10);
+	printf(" ");
 }
 else if (i <= 9 && i % 3 != 0 && i % 5 != 0)
-{_putchar(i + '0');
-_putchar(' ');
+{
+	printf("%d", i);
+	printf(" ");
 }
 else if (i % 3 == 0 && i % 5 == 0 && i != 0)
-{_putchar('F');
-_putchar('i');
-_putchar('z');
-_putchar('z');
-_putchar('B');
-_putchar('u');
-_putchar('z');
-_putchar('z');
-_putchar(' ');
+{
+	printf("FizzBuzz");
 }
 else if (i % 3 == 0 && i != 0)
-{_putchar('F');
-_putchar('i');
-_putchar('z');
-_putchar('z');
-_putchar(' ');
+{
+	printf("Fizz");
 }
 else if (i % 5 == 0 && i != 0)
-{_putchar('B');
-_putchar('u');
-_putchar('z');
-_putchar('z');
-_putchar(' ');
+{
+	printf("Buzz");
 }
 }
-_putchar(' ');
+printf(" ");
 return (0);
 }
 
