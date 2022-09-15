@@ -5,7 +5,7 @@
  */
 int main(void)
 {int i;
-for (i = 0; i < 100; i++)
+for (i = 0; i <= 100; i++)
 {
 if (i > 9 && i % 3 != 0 && i % 5 != 0)
 {
@@ -24,7 +24,6 @@ else if (i % 3 == 0 && i % 5 == 0 && i != 0)
 	printf(" ");
 }
 else if (i % 3 == 0 && i != 0)
-{
 	printf("Fizz");
 	printf(" ");
 }
