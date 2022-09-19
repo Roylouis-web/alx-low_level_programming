@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * print_rev - prints a string, in reverse, followed by a new line
  * @s: character parameter to be used
@@ -6,26 +7,17 @@
  */
 void print_rev(char *s)
 {
-	int i, c, k;
-	char *a, aux;
+	int c = 0;
 
-	a = s;
 	while (s[c] != '\0')
 	{
 		c++;
 	}
 
-	for (k = 1; k < c; k++)
+	for (c -= 1; c >= 0; c--)
 	{
-		a++;
+		_putchar(s[c]);
 	}
 
-	for (i = 0; i < (c / 2); i++)
-	{
-		aux = s[i];
-		s[i] = *a;
-		*a = aux;
-		a--;
-	}
 	_putchar('\n');
 }
