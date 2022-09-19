@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  *puts_half- prints half of a string, followed by a new line.
- * @str: integer pointer parameter 
+ * @str: integer pointer parameter
  * Return: void
  */
 void puts_half(char *str)
@@ -17,8 +17,9 @@ void puts_half(char *str)
 	if (j % 2 == 1)
 	{
 		k = (j - 1) / 2;
+		k += 1;
 	}
-	
+
 	else
 	{
 		k = j / 2;
