@@ -4,30 +4,28 @@
  * @s: character parameter to be used
  * Return: void
  */
-
 void rev_string(char *s)
 {
-int i, c, k;
-char *a, aux;
+char *start, *end, ch, len, c, i;
 
-a = s;
-
-while (s[c] != '\0')
+start = s;
+end = s;
+for (i = 0; *s != '\0'; i++)
 {
-c++;
+	c++;
 }
-
-for (k = 1; k < c; k++)
+len = c;
+for (i = 0; i < len - 1; i++)
 {
-a++;
+end++;
 }
-
-for (i = 0; i < (c / 2); i++)
+for (i = 0; i < len / 2; i++)
 {
-aux = s[i];
-													s[i] = *a;
-													*a = aux;
-													a--;
-													}
+ch = *end;
+*end = *start;
+*start = ch;
+end--;
+start++;
 }
-
+_putchar(*s);
+}
