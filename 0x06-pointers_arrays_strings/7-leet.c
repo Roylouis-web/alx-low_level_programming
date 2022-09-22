@@ -6,25 +6,24 @@
  */
 char *leet(char *s)
 {
-	int a = 0, b = 0, l = 5;
-	char r[5] = {'A', 'E', 'O', 'T', 'L'};
-	char n[5] = {'4', '3', '0', '7', '1'};
+	int i;
 
-	while (s[a])
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		b = 0;
+		if (s[i] == 'a' || s[i] == 'A')
+			s[i] = '4';
 
-		while (b < 1)
-		{
-			if (s[a] == r[b] || s[a] - 32 == r[b])
-			{
-				s[a] = n[b];
-			}
+		else if (s[i] == 'e' || s[i] == 'E')
+			s[i] = '3';
 
-			b++;
-		}
+		else if (s[i] == 'o' || s[i] == 'O')
+			s[i] = '0';
 
-		a++;
+		else if (s[i] == 't' || s[i] == 'T')
+			s[i] = '7';
+
+		else if (s[i] == 'l' || s[i] == 'L')
+			s[i] = '1';
 	}
 
 	return (s);
