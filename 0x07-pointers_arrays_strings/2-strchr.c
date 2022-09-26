@@ -5,10 +5,17 @@
  * Return: a character pointer
  */
 char *_strchr(char *s, char c)
-	for (;; s++)
 {
-	if (*s == c)
-		return (s);
-	if (!*s)
-		return (NULL);
+	int i;
+
+	for (i = 0; s[i]; i++)
+	{
+		if (s[i] == c)
+			return (s + i);
+	}
+
+	if (s[i] == c)
+		return (s + i);
+	else
+		return ('\0');
 }
