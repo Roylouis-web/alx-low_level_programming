@@ -8,9 +8,10 @@ void _puts(char *s)
 {
 	int i;
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; s[i] != '\0'; s++)
 	{
 		printf("%c", *(s + i));
 	}
+	
 	printf("\n");
 }
