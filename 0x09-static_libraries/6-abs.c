@@ -3,13 +3,13 @@
  *@c: integer parameter to be used in the function below
  *Return: Always Successful
  */
-int _abs(int c)
+int _abs(int n)
 {
-if (c < 0)
-{return (c *= -1);
+if (n < 0)
+{return (n *= -1);
 }
-else if (c >= 0)
-{return (c);
+else if (n >= 0)
+{return (n);
 }
 return (0);
 }

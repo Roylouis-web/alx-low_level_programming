@@ -5,13 +5,13 @@
  * @str: character pointer parameter
  * Return: void
  */
-void _puts(char *str)
+void _puts(char *s)
 {
 	int i;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		printf("%c", *(str + i));
+		printf("%c", *(s + i));
 	}
 	printf("\n");
 }
