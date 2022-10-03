@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
-* create_array - creates an array of chars, 
+* create_array - creates an array of chars,
 * and initializes it with a specific char.
 * @size: integer parameter to be used
 * @c: character parameter to be used
@@ -11,7 +11,7 @@
 char *create_array(unsigned int size, char c)
 {
 	unsigned int i;
-	char* ptr;
+	char *ptr;
 
 	if (size == 0)
 		return (NULL);
@@ -19,7 +19,7 @@ char *create_array(unsigned int size, char c)
 
 	if (ptr == NULL)
 		return (NULL);
-	
+
 	for (i = 0; i < size; i++)
 		ptr[i] = c;
 
