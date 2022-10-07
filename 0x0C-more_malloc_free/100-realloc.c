@@ -2,6 +2,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+/**
+ * _memcpy - copies memory
+ * @dest: destination
+ * @src: source
+ * @n: size of memory to copy
+ *
+ * Return: Returns memory copied
+ */
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+		dest[i] = src[i];
+	return (dest);
+}
 /**
  * _realloc - reallocates a memory block using malloc and free
  * @ptr: void pointer parameter
@@ -9,40 +26,34 @@
  * @new_size: integer pointer parameter
  * Return: void
  */
+
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *rmemb;
-	char *old_p;
-	unsigned int i;
+	void *ptr2;
 
-	if (new_size == old_size)
+	if (old_size == new_size)
 		return (ptr);
 
-	if (!new_size && ptr)
+	if (ptr == NULL)
+	{
+		ptr2 = malloc(new_size);
+		if (ptr2 == 0)
+			return (0);
+		free(ptr);
+		return (ptr2);
+	}
+
+	if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
-		return (NULL);
+		return (0);
 	}
 
-	if (!ptr)
-		return (malloc(new_size));
-	rmemb = malloc(new_size);
-	if (rmemb == NULL)
-		return (NULL);
+	ptr2 = malloc(new_size);
+	if (ptr2 == 0)
+		return (0);
 
-	old_p = ptr;
-
-	if (new_size < old_size)
-	{
-		for (i = 0; i < new_size; i++)
-			rmemb[i] = old_p[i];
-	}
-
-	if (new_size > old_size)
-	{
-		for (i = 0; i < old_size; i++)
-			rmemb[i] = old_p[i];
-	}
+	_memcpy(ptr2, ptr, old_size);
 	free(ptr);
-	return (rmemb);
-
+	return (ptr2);
+}
