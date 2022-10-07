@@ -88,6 +88,6 @@ int main(int argc, char **argv)
 	for (; zer < lful; zer++)
 		printf("%c", res[zer]);
 	printf("\n");
-	free(res);
+	free(res)
 	return (0);
 }
