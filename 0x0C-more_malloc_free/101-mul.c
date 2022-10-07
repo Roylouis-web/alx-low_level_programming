@@ -1,46 +1,93 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-#define ERR_MSG "Error"
-
-int _isdigit(char *s);
+#include <ctype.h>
+#include <string.h>
 /**
- *  main - takes two numbers as arguments and outputs the product.
- *  @argc: the number of arguments including name of program.
- *  @argv: an array of arguments
- *  Return: 0 if successful.
+ * _isnumber - checks if string is number
+ *
+ * @s: string
+ *
+ * Return: 1 if number, 0 if not
  */
-int main(int argc, char *argv[])
+int _isnumber(char *s)
 {
-	int i;
+	int i, check, d;
 
-	if (argc != 3)
+	d = 0, check = 1;
+	for (i = 0; *(s + i) != 0; i++)
 	{
-		for (i = 0; ERR_MSG[i] != '\0'; i++)
-			_putchar(ERR_MSG[i]);
-		_putchar(10);
-		exit(98);
+		d = isdigit(*(s + i));
+		if (d == 0)
+		{
+			check = 0;
+			break;
+		}
 	}
-	if (_isdigit(argv[1]) == 0)
-		printf("%s\n", argv[1]);
-
-	return (0);
+	return (check);
 }
 
 /**
- *_isdigit - checks if string is a number or not
- * @s: the string to be checked
+ * _callocX - reserves memory initialized to 0
  *
- * Return: 1 if true, else 0.
+ * @nmemb: # of bytes
+ *
+ * Return: pointer
  */
-
-int _isdigit(char *s)
+char *_callocX(unsigned int nmemb)
 {
-	while (*s)
+	unsigned int i;
+	char *p;
+
+	p = malloc(nmemb + 1);
+	if (p == 0)
+		return (0);
+	for (i = 0; i < nmemb; i++)
+		p[i] = '0';
+	p[i] = '\0';
+	return (p);
+}
+
+/**
+ * main - multiplies inf numbers
+ *
+ * @argc: # of cmd line args
+ * @argv: cmd line args
+ * Return: No return
+ */
+int main(int argc, char **argv)
+{
+	int i, j, l1, l2, lful, mul, add, ten, ten2, tl, zer = 0;
+	char *res;
+
+	if (argc != 3 || _isnumber(argv[1]) == 0 || _isnumber(argv[2]) == 0)
+		printf("Error\n"), exit(98);
+	if (atoi(argv[1]) == 0 || atoi(argv[2]) == 0)
+		printf("0\n"), exit(0);
+	l1 = strlen(argv[1]), l2 = strlen(argv[2]);
+	lful = l1 + l2;
+	res = _callocX(lful);
+	if (res == 0)
+		printf("Error\n"), exit(98);
+	for (i = l2 - 1; i >= 0; i--)
 	{
-		if (*s < 48 || *s > 57)
-			return (1);
-		s++;
+		ten = 0, ten2 = 0;
+		for (j = l1 - 1; j >= 0; j--)
+		{
+			tl = i + j + 1;
+			mul = (argv[1][j] - '0') * (argv[2][i] - '0');
+			ten =  mul / 10;
+			add = (res[tl] - '0') + (mul % 10) + ten2;
+			ten2 = add / 10;
+			res[tl] = (add % 10) + '0';
+		}
+		res[tl - 1] = (ten + ten2) + '0';
 	}
+	if (res[0] == '0')
+		zer = 1;
+	for (; zer < lful; zer++)
+		printf("%c", res[zer]);
+	printf("\n");
+	free(res);
 	return (0);
 }
