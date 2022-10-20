@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "lists.h"
-
+int _strlen(const char *s);
 /**
   * add_node_end - Adds a new node at the end of a list
   * @head: The original linked list
