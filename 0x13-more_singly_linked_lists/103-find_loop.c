@@ -1,4 +1,10 @@
 #include "lists.h"
+/**
+ * find_listint_loop - ....
+ * @head: ....
+ * Return: ....
+ */
+
 listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *adv_once = head, *adv_twice = head;
