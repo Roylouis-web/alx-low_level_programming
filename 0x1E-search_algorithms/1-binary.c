@@ -1,8 +1,6 @@
 #include <stdio.h>
 
-size_t middleIndex(int size);
-size_t _size(int *array);
-
+int procedure(int low, int high, int *array, int value);
 /**
  *  binary_search -  a function that searches for a value in a sorted
  *  array of integers using the Binary search algorithm
@@ -14,52 +12,57 @@ size_t _size(int *array);
 
 int binary_search(int *array, size_t size, int value)
 {
-	size_t middle = middleIndex(size);
-	size_t right = 0;
-	size_t left = 0;
-	
-	if (array != NULL)
+	int low = 0;
+	int high = size - 1;
+
+	return (procedure(low, high, array, value));
+}
+
+
+/**
+ * procedure - recursive helper function
+ * to find the index of the number being searched
+ * @low: lower bound of the array
+ * @high: upper bound of the array
+ * @array: an array of integers
+ * @value: value in the array whose index is to be retrieved
+ * Return: The index of the value
+ */
+
+int procedure(int low, int high, int *array, int value)
+{
+	if (low <= high)
 	{
-		if (value > middle)
+		int i = low;
+		int mid = (low + high) / 2;
+		
+		printf("Searching in array: ");
+		for (; i <= high; i++)
 		{
-			left = middle + 1;
-			right = size;
+			if (i != high)
+			{
+				printf("%d, ", array[i]);
+			}
+			else
+			{
+				printf("%d", array[i]);
+			}
 		}
-		else if (value < middle)
+		printf("\n");
+
+		if (value > array[mid])
 		{
-			right = middle - 1;
+			return (procedure(mid + 1, high, array, value));
 		}
-		else if (middle == value)
+		else if (value < array[mid])
 		{
-			return (middle);
+			return (procedure(low, mid - 1, array, value));
+		}
+		else if (array[mid] == value)
+		{
+			return (mid);
 		}
 	}
+
+	return (-1);
 }
-
-
-/**
- * middleIndex - gets the index of the middle number
- * @size: length of the array
- * Return: The middle index of array
- */
-
-size_t middleIndex(int size)
-{
-	size_t result = (size / 2);
-
-	return (result);
-}
-
-/**
- * _size - gets the size of an array
- * @array: array whose size is to be gotten
- * Return: The size of an array
- */
-
-size_t _size(int *array)
-{
-	size_t size = *(&array + 1) - array;
-
-	return (size);
-}
-
