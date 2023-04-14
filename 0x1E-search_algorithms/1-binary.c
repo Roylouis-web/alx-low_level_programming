@@ -35,7 +35,7 @@ int procedure(int low, int high, int *array, int value)
 	{
 		int i = low;
 		int mid = (low + high) / 2;
-		
+
 		printf("Searching in array: ");
 		for (; i <= high; i++)
 		{
